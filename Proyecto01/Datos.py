@@ -1,26 +1,14 @@
-from importlib import import_module
-from re import S
-import requests
-import time 
-import pandas as pd   ## pd es el objeto sque se creo con pandas
+import pandas as pd   
 pd._version  
-#import numpy as np
-from functools import lru_cache
 
-class Datos:
-    conjunto =set()
-    conjunto={""}
-    origen=[]
-    destine=[]
-    datos={}
-    diccionario_ABC={}
-    origin_latitude=[]
-    origin_longitude=[]
-    destin_latitude=[]
-    destin_longitude=[]
-    direction_file=""
+
+class Datos:   
 
     def __init__(self,direction_file):
+        self.conjunto =set()
+        self.conjunto={""}
+        self.datos={}
+        self.__diccionario_ABC={}
         self.direction_file=direction_file
         self.read_csv(direction_file)
         self.origen=self.datos['origin'] 
@@ -34,7 +22,6 @@ class Datos:
         self.__aux__()
         
        
-
 
 
 
@@ -90,7 +77,19 @@ class Datos:
                 if coordenada==[]:
                     coordenada=self.search_coord(i,self.destine,self.destin_latitude,self.destin_longitude)
                 if len(coordenada)==2:
-                    self.maker_dict(i,coordenada[0],coordenada[1],self.diccionario_ABC)
+                    self.maker_dict(i,coordenada[0],coordenada[1],self.__diccionario_ABC)
 
 
+    '''
+    Regresea solo las coordenadas de una IATA en especifico o 
+    todo el diccionario IATA
+    '''
+    def getDictionary(self,IATA=""):
+        if IATA =="":
+            return self.__diccionario_ABC
+        
+        else:
+            return self.__diccionario_ABC[IATA]
+        
 
+    
