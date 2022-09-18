@@ -7,8 +7,8 @@ de datos
       Para verificar si tienes pandas , en la terminal puedes escribir 
       python
       import pandas as pd 
-      si no te aparece nada entonces si la tienes instalado 
-      de lo contrario hay que instalarlo 
+      si no te aparece nada entonces si la tienes instalada 
+      de lo contrario hay que instalarla 
       para mas informacion sobre esto , puede visitar 
       https://www.ingeniusworlds.com/libreria-pandas-y-python/
       info adicional  para linux 
@@ -38,7 +38,7 @@ Ya dentro del programa te dara 2 opciones
         acceso inmediato si se hace dentro del rango , si se demora mas tiempo entonces el sistema volvera a 
         llamar  a la Api de Openweather 
 
-Hay un apartado que dice tiempo vigencia eso el tiempo  que todavia se tiene,   para hacer una solicitud del clima 
+Hay un apartado que dice tiempo vigencia eso es el tiempo  que todavia se tiene,   para hacer una solicitud del clima 
 y que salgan de inmediato 
 
 
