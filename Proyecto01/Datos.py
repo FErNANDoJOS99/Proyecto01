@@ -26,6 +26,7 @@ class Datos:
 
 
     def read_csv(self,nombreCSV):
+        """Lee el csv y eso lo guarda en el diccionario (datos)"""
         self.datos=pd.read_csv(nombreCSV,header=0)  ## header es igual al encabezado de la primer fila 
       
         
@@ -37,6 +38,7 @@ class Datos:
     '''
 
     def generate_set(self,list1,list2):
+        """Genera un conjunto de con elementos no repetidos \n"""
         for i in range(0,len(list1)):
             self.conjunto.add(list1[i])
         for i in range(1,len(list2)-1):
@@ -53,6 +55,8 @@ class Datos:
     '''
 
     def search_coord(self,ABC,coleccion1,coleccion2,coleccion3):
+        """Busca los argumentos de dos diccionarios segun una clave.\n
+        return los argumentos , si no los encuentra retorna diccionario vacio """
         indice=0
         for i in coleccion1:
             
@@ -64,10 +68,9 @@ class Datos:
 
 
 
-## Hace un diccionario con claves IATA y por contenido un 
-## string con latitud y longitud 
-
     def maker_dict(self,ABC,latitude,altitude,dict):
+        """Hace un diccionario con claves ABC y por contenido un 
+        string con latitud y longitud """
         dict[ABC]=[latitude,altitude]
 
     ## ayuda a crear el diccionario de IATA con sus longitudes 
@@ -80,11 +83,13 @@ class Datos:
                     self.maker_dict(i,coordenada[0],coordenada[1],self.__diccionario_ABC)
 
 
-    '''
-    Regresea solo las coordenadas de una IATA en especifico o 
-    todo el diccionario IATA
-    '''
+ 
+
+
+  
     def getDictionary(self,IATA=""):
+        """Retun el diccionario_ABC o solo un argumento de el, eso depende
+        si se le pone parametros al metodo """
         if IATA =="":
             return self.__diccionario_ABC
         

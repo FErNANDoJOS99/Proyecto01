@@ -1,13 +1,7 @@
-#from importlib import import_module
-#from importlib.metadata import requires
-#from webbrowser import get
 import requests
-#import time 
 import pandas as pd   ## pd es el objeto sque se creo con pandas
 pd._version  
-#import numpy as np
-#from functools import lru_cache
-#from Writerr import WriterrReader
+
 
 class Coneccion_Api:
     __diccionario_Weathers={}
@@ -17,6 +11,8 @@ class Coneccion_Api:
 
 
     def check_Url(self):
+        """Verifica si la url con la clave sirven. \n
+        Si no sirve o no hay internet return False, de lo contrario return True"""
 
         try:
             url ="https://api.openweathermap.org/data/2.5/weather?lat=19.3371&lon=-99.566&appid={}".format(self.clave)
@@ -34,10 +30,11 @@ class Coneccion_Api:
 
     
 
-        
-
 
     def request_Api_OpenW(self,lati1,longi1):
+        """Hace la solicitud a la Api de OpenWeather\n
+        La informacion que obtiene la guarda en un diccionario 
+        return diccionario """
         diccionario_temp={}
         url="https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}".format(lati1,longi1,self.clave)
         res =requests.get (url)   #le habla a la API  para que la analizen 
@@ -50,70 +47,49 @@ class Coneccion_Api:
         description =data ["weather"][0]["description"]  # Description es una lista por eso se ponde desde cero 
         name=data ["name"]
         
-        print("Espere ,cargando informacion")
-        '''
-        print("nombre de la ciudad ",name)
-        print("temperature",temp)
-        print("Velocidad del viento:",wind_speed,"m/s")
-        print("latitude:",latitude)
-        print ("longitud:",longitude)
-        print("description:",description)
-
-        
-        '''
 
         diccionario_temp={"nombre":name,"temperatura":temp,"viento":wind_speed,"latitude":latitude,"longitud":longitude,"description":description}
         return diccionario_temp
 
 
-
-
-
-
-
-        '''
-
+    def seacher_Weather(self,diccionario_ABC):
+        """Crea el diccionario de climas \n
         Hace las llamadas con las direcciones se salen del IATA que estan en el diccionario_ABC
         y los valores de la solucitud los guarda en un diccionario llamado 
-        __diccionario_Weathers
+        __diccionario_Weathers"""
+        contador=0
 
-        '''
-
-    def seacher_Weather(self,diccionario_ABC):
-            contador=0
-
-            for i in diccionario_ABC:
-                print("\n",contador,"\n")
-                self.__diccionario_Weathers[i]=self.request_Api_OpenW(diccionario_ABC[i][0],diccionario_ABC[i][1])
-                contador=contador+1
+        for i in diccionario_ABC:
+            print("\n",contador,"\n")
+            self.__diccionario_Weathers[i]=self.request_Api_OpenW(diccionario_ABC[i][0],diccionario_ABC[i][1])
+            contador=contador+1
 
 
 
-        
-        
-
-        ## Es para imprimir el diccionario de una forma bonita 
-        #si no se pasa el diccionario , entonces imprime lo de solo un distino 
-        #pero por defecto busca un diccionario
     def drawing_Coordenada(self,dict1=__diccionario_Weathers,clave="0"):
-            if clave!="0":
-                info=dict1[clave] #se saca una IATA del diccionario de Climas 
-            else:info=dict1
-            nombre=info["nombre"]
-            temperatura=info["temperatura" ]
-            viento=info["viento"]
-            latitude=info["latitude"] 
-            longitude=info["longitud"]
-            description=info[ "description"]   
 
-            print("El nombre de la localidad  es ",nombre)
-            print("temperature",temperatura)
-            print("Velocidad del viento:",viento,"m/s")
-            print("latitude:",latitude)
-            print ("longitud:",longitude)
-            print("description:",description)
-            print("\n")
-            
+        """Imprime el diccionario que recibe de una forma bonita. \n
+        Si no se pasa el diccionario , entonces imprime lo de solo un distino 
+        pero por defecto busca un diccionario."""
+
+        if clave!="0":
+            info=dict1[clave] #se saca una IATA del diccionario de Climas 
+        else:info=dict1
+        nombre=info["nombre"]
+        temperatura=info["temperatura" ]
+        viento=info["viento"]
+        latitude=info["latitude"] 
+        longitude=info["longitud"]
+        description=info[ "description"]   
+
+        print("El nombre de la localidad  es ",nombre)
+        print("temperature",temperatura)
+        print("Velocidad del viento:",viento,"m/s")
+        print("latitude:",latitude)
+        print ("longitud:",longitude)
+        print("description:",description)
+        print("\n")
+        
             
 
     def getWeathers(self):
@@ -123,19 +99,12 @@ class Coneccion_Api:
     def setWeathers(self,newClima):
         self.__diccionario_Weathers=newClima
 
-
-    '''
-    Recibe 2 cadenas , origen y destino 
-    y ocupa el for para irlas recorriendo ya que estas contienen las claves 
-   que usaremos en el diccionario y estos valores son los que vamos a 
-   imprimir bonito 
+   
     
-    '''
-        
-    
-
     def put_out_everything2(self,origin,destine):
-        
+        """Manda a llamar a drawing_Coordenada.\n 
+        Ademas va haciendo la separacion entre vuelos 
+        eh imprime el numero de vuelo que corresponde. """
        
         contador=0
         for i in range(0,len(destine)):
@@ -156,4 +125,10 @@ class Coneccion_Api:
     
 
 
+    def verifyIATA(self, iata ):
+        print("hola1")
+        if iata in self.__diccionario_Weathers:
+            print (self.__diccionario_Weathers,"hola")
+            return True
+        else:return False
 

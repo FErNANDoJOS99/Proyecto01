@@ -40,6 +40,7 @@ if writer.existFile()==True:
                                 print("Hizo la solicitud \n\n")
                                 coordenadas1=datosCsv.getDictionary(iata)    
                                 coneccion.drawing_Coordenada(coneccion.request_Api_OpenW(coordenadas1[0],coordenadas1[1]))
+                                break
                             else: 
                                 print("Saco del diccionario \n\n")
                                 coneccion.drawing_Coordenada(writer.recover("almacen"),iata)
@@ -59,13 +60,14 @@ if writer.existFile()==True:
                                 writer.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
                                 coneccion.put_out_everything2(datosCsv.origen,datosCsv.destine)
                                 tiempo.set_timePast(datetime.now())  
-                                
+                                break
                                 
 
                             else:
                                 time.sleep(4)
                                 coneccion.setWeathers(writer.recover("almacen"))
                                 coneccion.put_out_everything2(datosCsv.origen,datosCsv.destine)
+                                break
                     except:
                         print("Algo salio mal verifica tu internet ")
 
@@ -74,7 +76,7 @@ if writer.existFile()==True:
                         
                 else:print("No escogiste un valor correcto ")
 
-            print("\n\nQuieres mas informacion (1)\nQuieres salir(2)")
+            print("\n\nRegresar al menu principal (1)\nQuieres salir(2)")
             i=input ("Escoge  1 o 2 \n\n\n")
             print("\n\n\n")
 
