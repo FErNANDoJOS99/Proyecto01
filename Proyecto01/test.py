@@ -19,7 +19,7 @@ class TestMethodes(unittest.TestCase):
 
     #Verifica que la Api si regrese un diccionario 
     def test_verificar_Json(self):
-            print("Ver que hace con este metdof nuevo en rama 2")
+            print("Ver que hace con este metdof nuevo en rama 22")
             writer=WriterrReader()
             clave=None
 
