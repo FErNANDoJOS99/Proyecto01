@@ -19,7 +19,11 @@ class TestMethodes(unittest.TestCase):
 
     #Verifica que la Api si regrese un diccionario 
     def test_verificar_Json(self):
+<<<<<<< HEAD
             print("Ver que hace con este metdof nuevo en rama 22")
+=======
+        
+>>>>>>> parent of bf99edc (Nooo hacer caso solo es prueba de como funciona una rama)
             writer=WriterrReader()
             clave=None
 
@@ -44,14 +48,19 @@ class TestMethodes(unittest.TestCase):
         self.assertIn("TLC",diccionarioClimas)
         self.assertIn("MEX",diccionarioClimas)
         self.assertIn("MTY",diccionarioClimas)
+<<<<<<< HEAD
         
+=======
+>>>>>>> parent of bf99edc (Nooo hacer caso solo es prueba de como funciona una rama)
         self.assertIn("TAM",diccionarioClimas)
 
 
 
 
 
-
 if __name__ =="main":
+<<<<<<< HEAD
     
+=======
+>>>>>>> parent of bf99edc (Nooo hacer caso solo es prueba de como funciona una rama)
     unittest.main()
