@@ -46,6 +46,7 @@ class TestMethodes(unittest.TestCase):
         print("solo parac ver si funciona la nueva rama dfasdfasdf")
         self.assertIn("TLC",diccionarioClimas)
         self.assertIn("MEX",diccionarioClimas)
+          print("solo parac ver si funciona la nueva rama , tercer commint ")
         self.assertIn("MTY",diccionarioClimas)
 
         self.assertIn("TAM",diccionarioClimas)
