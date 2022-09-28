@@ -28,6 +28,7 @@ class TestMethodes(unittest.TestCase):
     
                 clave=writer.readFile()
                 claveLimpia=clave.strip()
+                  print("solo parac ver si funciona la nueva rama 123456,,, segundo comiit ")
                 coneccion=Coneccion_Api(claveLimpia) 
 
             coneccion=Coneccion_Api(claveLimpia)
