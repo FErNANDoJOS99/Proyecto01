@@ -19,7 +19,7 @@ class TestMethodes(unittest.TestCase):
 
     #Verifica que la Api si regrese un diccionario 
     def test_verificar_Json(self):
-            print("yuju")
+            print("Ver que hace con este metdof nuevo en rama 2")
             writer=WriterrReader()
             clave=None
 
@@ -44,7 +44,7 @@ class TestMethodes(unittest.TestCase):
         self.assertIn("TLC",diccionarioClimas)
         self.assertIn("MEX",diccionarioClimas)
         self.assertIn("MTY",diccionarioClimas)
-        print("hosdfsdfsd")
+        
         self.assertIn("TAM",diccionarioClimas)
 
 
@@ -53,5 +53,5 @@ class TestMethodes(unittest.TestCase):
 
 
 if __name__ =="main":
-    print("ey yuju")
+    
     unittest.main()
