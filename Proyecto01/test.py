@@ -15,7 +15,7 @@ class TestMethodes(unittest.TestCase):
            
             with self.assertRaises(FileNotFoundError): 
                    datos=Datos("dataset2.csv")  
-                   print("solo parac ver si funciona la nueva rama 123456")
+              
     
 
     #Verifica que la Api si regrese un diccionario 
@@ -28,7 +28,7 @@ class TestMethodes(unittest.TestCase):
     
                 clave=writer.readFile()
                 claveLimpia=clave.strip()
-                  print("solo parac ver si funciona la nueva rama 123456,,, segundo comiit ")
+                
                 coneccion=Coneccion_Api(claveLimpia) 
 
             coneccion=Coneccion_Api(claveLimpia)
@@ -43,7 +43,7 @@ class TestMethodes(unittest.TestCase):
     def test_diccionarioClimas (self):
         writerr=WriterrReader()
         diccionarioClimas=writerr.recover("almacen")
-        print("solo parac ver si funciona la nueva rama dfasdfasdf")
+      
         self.assertIn("TLC",diccionarioClimas)
         self.assertIn("MEX",diccionarioClimas)
         
