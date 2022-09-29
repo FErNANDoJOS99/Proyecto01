@@ -80,7 +80,7 @@ class Datos:
                 if coordenada==[]:
                     coordenada=self.search_coord(i,self.destine,self.destin_latitude,self.destin_longitude)
                 if len(coordenada)==2:
-                    self.maker_dict(i,coordenada[0],coordenada[1],self.__diccionario_ABC)
+                    self.make_dict(i,coordenada[0],coordenada[1],self.__diccionario_ABC)
 
 
  
