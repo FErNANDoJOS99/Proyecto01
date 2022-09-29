@@ -4,7 +4,9 @@ colecion=None
 
 class WriterrReader:
 
-    
+    clave=""
+    def __init__(self):
+        self.clave=""
 
     def save(self , coleccion):
         """Guarda una coleccion en un fichero llamado , almacen"""
@@ -24,6 +26,19 @@ class WriterrReader:
         except:
 
             return None
+
+
+    def is_the_file(self,nombreArchivo):
+        """Verifa que se encuentre el archivo , binario, pasado como argumento 
+        si lo esta return True , si no return False"""
+        try:
+            ficheroApertura=open(nombreArchivo,"rb")
+            ficheroApertura.close
+            return True
+        except:
+
+            return False
+    ######
       
     def existFile(self):
         """Verifica que exista el archivo ,Introduce_tu_key \n
@@ -55,3 +70,19 @@ class WriterrReader:
         archivo_texto.close()
         return texto
         
+    def exist_key(self):
+        """
+        Verifica si existe la clave para entrar al progrma 
+        y si existe ,guarda la clave dentro de sus parametros
+        """
+        if(self.existFile()):
+            clave1=self.readFile()
+            claveLimpia=clave1.strip()
+            self.clave=claveLimpia
+            
+            return True
+        else:
+            return False
+
+    def get_key(self):
+        return self.clave
