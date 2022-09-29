@@ -87,7 +87,7 @@ class Datos:
 
 
   
-    def getDictionary(self,IATA=""):
+    def get_Dictionary(self,IATA=""):
         """Retun el diccionario_ABC o solo un argumento de el, eso depende
         si se le pone parametros al metodo """
         if IATA =="":
