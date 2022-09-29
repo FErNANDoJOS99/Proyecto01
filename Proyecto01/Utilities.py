@@ -40,7 +40,7 @@ class Utilities:
             return False
     ######
       
-    def existFile(self):
+    def __exist_File(self):
         """Verifica que exista el archivo ,Introduce_tu_key \n
         return True si lo encuentra"""
         try:
@@ -53,14 +53,14 @@ class Utilities:
             return False
     
 
-    def makeFile(self):
+    def make_File_to_key(self):
         """Crea un archivo vacio llamado Introduce_tu_key.txt"""
         archivo_texto=open ("Introduce_tu_key.txt","w")
         archivo_texto.write("")
         archivo_texto.close()
 
 
-    def readFile (self):
+    def __read_file_key (self):
         """
         Va a leer el archivo llamado "Introduce_tu_key.txt\n
         return el contenido del archivo 
@@ -75,8 +75,8 @@ class Utilities:
         Verifica si existe la clave para entrar al progrma 
         y si existe ,guarda la clave dentro de sus parametros
         """
-        if(self.existFile()):
-            clave1=self.readFile()
+        if(self.__exist_File()):
+            clave1=self.__read_file_key()
             claveLimpia=clave1.strip()
             self.clave=claveLimpia
             

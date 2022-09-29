@@ -25,14 +25,14 @@ def main ():
             print("**   Buscar una IATA en especifico    (1)")
             print("**   Ver los 3000 horarios de vuelo con origen y  destino     (2) ")
             i=input ("\nEscoge  1 o 2 \n")
-            tiempo.set_timeCurrent()
+            tiempo.set_current_time()
             if i=="1":
                     try:
                         iata =input ("Escribe la IATA      .........  Ejemplo MEX  , TLC , MTY  \n")
                         print("\n\n") 
-                        if  utility.is_the_file("almacen")==False or tiempo.compareTime() == False:
+                        if  utility.is_the_file("almacen")==False or tiempo.compare_time() == False:
                             print("Hizo la solicitud \n\n")
-                            coordenadas1=datosCsv.getDictionary(iata)    
+                            coordenadas1=datosCsv.get_Dictionary(iata)    
                             coneccion.drawing_Weather(coneccion.request_Api_OpenW(coordenadas1[0],coordenadas1[1]))
                             break
                         else: 
@@ -45,21 +45,21 @@ def main ():
             elif i=="2":
 
                 try :
-                        if  utility.is_the_file("almacen")==False or tiempo.compareTime() == False  : # si no se ha ejecutado el archivo ninguna vez 
+                        if  utility.is_the_file("almacen")==False or tiempo.compare_time() == False  : # si no se ha ejecutado el archivo ninguna vez 
                                                                                                 #o el tiempo de validez del archivo ya expiro entonces 
                                                                                                 # hacer la busqueda completa de nuevo
                             print("La demora tarda aprox 45 seg\n\n ")
                             time.sleep(4)
-                            coneccion.search_climates(datosCsv.getDictionary())
-                            utility.save_collection(coneccion.getWeathers())                  ## guarda externamente el diccionario 
+                            coneccion.search_climates(datosCsv.get_Dictionary())
+                            utility.save_collection(coneccion.get_Weathers())                  ## guarda externamente el diccionario 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
-                            tiempo.set_timePast(datetime.now())  
+                            tiempo.set_past_time(datetime.now())  
                             break
                             
 
                         else:
                             time.sleep(4)
-                            coneccion.setWeathers(utility.recover_collection("almacen"))
+                            coneccion.set_Weathers(utility.recover_collection("almacen"))
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             break
                 except:
@@ -87,7 +87,7 @@ if utility.exist_key():
         print ("\n\n\n Escribe una key correcta \n\n\n ")
 else:
     print("Escribe una key en el archivo 'Introduce_tu_key'")
-    utility.makeFile()
+    utility.make_File_to_key()
 
 
 

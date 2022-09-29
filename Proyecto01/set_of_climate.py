@@ -46,11 +46,11 @@ class set_of_climate(Coneccion_Api):
         
             
 
-    def getWeathers(self):
+    def get_Weathers(self):
         a=self.__weather_dictionary
         return a
 
-    def setWeathers(self,newClima):
+    def set_Weathers(self,newClima):
         self.__weather_dictionary=newClima
 
    
