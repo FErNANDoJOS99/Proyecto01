@@ -4,7 +4,7 @@ from Datos import Datos
 import time
 from  Writerr import WriterrReader
 from Comparado_tiempo import Comparador_tiempo
-
+from set_of_climate import set_of_climate
 try:
     datosCsv=Datos("dataset1.csv")  
 except FileNotFoundError:
@@ -21,7 +21,7 @@ if writer.existFile()==True:
     clave=""
     clave=writer.readFile()
     claveLimpia=clave.strip()
-    coneccion=Coneccion_Api(claveLimpia) 
+    coneccion=set_of_climate(claveLimpia) 
 
     if coneccion.check_Url()==True:
     

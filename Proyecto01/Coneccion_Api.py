@@ -4,11 +4,9 @@ pd._version
 
 
 class Coneccion_Api:
-    __diccionario_Weathers={}
     def __init__(self,clave):
         self.clave=clave      
-        self.__diccionario_Weathers={}
-
+    
 
     def check_Url(self):
         """Verifica si la url con la clave sirven. \n
@@ -91,44 +89,4 @@ class Coneccion_Api:
         print("\n")
         
             
-
-    def getWeathers(self):
-        a=self.__diccionario_Weathers
-        return a
-
-    def setWeathers(self,newClima):
-        self.__diccionario_Weathers=newClima
-
-   
-    
-    def put_out_everything2(self,origin,destine):
-        """Manda a llamar a drawing_Coordenada.\n 
-        Ademas va haciendo la separacion entre vuelos 
-        eh imprime el numero de vuelo que corresponde. """
-       
-        contador=0
-        for i in range(0,len(destine)):
-            contador=contador+1
-            j=origin[i]
-            k=destine[i]
-            print ("\n\n###### ORIGEN ######")
-            print("Clima  de  ",j,"  " )
-            self.drawing_Coordenada(self.__diccionario_Weathers,j)
-            print ("\n\n###### DESTINO ######")
-            print("Clima  de ",k," ")
-            self.drawing_Coordenada(self.__diccionario_Weathers,k)
-            print("\n\n\n Registro ",i," #####################\n")
-            if contador ==100:
-                z= input("\n\nBusca el vuelo que necesites o \nDa un enter para continuar \n\n\n") 
-                contador=0
-
-    
-
-
-    def verifyIATA(self, iata ):
-        print("hola1")
-        if iata in self.__diccionario_Weathers:
-            print (self.__diccionario_Weathers,"hola")
-            return True
-        else:return False
 
