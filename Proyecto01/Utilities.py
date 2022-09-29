@@ -2,7 +2,7 @@ import pickle
 from io import open
 colecion=None
 
-class WriterrReader:
+class Utilities:
 
     clave=""
     def __init__(self):

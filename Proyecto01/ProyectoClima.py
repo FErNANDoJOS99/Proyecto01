@@ -2,7 +2,7 @@ from datetime import datetime
 from Coneccion_Api import Coneccion_Api 
 from Datos import Datos 
 import time
-from  Writerr import WriterrReader
+from  Utilities import Utilities
 from Comparado_tiempo import Comparador_tiempo
 from set_of_climate import set_of_climate
 try:
@@ -13,7 +13,7 @@ except FileNotFoundError:
 
 
 coneccion=None
-writer=WriterrReader()
+utility=Utilities()
 
 def main ():
 
@@ -30,14 +30,14 @@ def main ():
                     try:
                         iata =input ("Escribe la IATA      .........  Ejemplo MEX  , TLC , MTY  \n")
                         print("\n\n") 
-                        if  writer.is_the_file("almacen")==False or tiempo.compareTime() == False:
+                        if  utility.is_the_file("almacen")==False or tiempo.compareTime() == False:
                             print("Hizo la solicitud \n\n")
                             coordenadas1=datosCsv.getDictionary(iata)    
                             coneccion.drawing_Weather(coneccion.request_Api_OpenW(coordenadas1[0],coordenadas1[1]))
                             break
                         else: 
                             print("Saco del diccionario \n\n")
-                            coneccion.drawing_Weather(writer.recover("almacen"),iata)
+                            coneccion.drawing_Weather(utility.recover("almacen"),iata)
 
                         break
                     except:
@@ -45,13 +45,13 @@ def main ():
             elif i=="2":
 
                 try :
-                        if  writer.is_the_file("almacen")==False or tiempo.compareTime() == False  : # si no se ha ejecutado el archivo ninguna vez 
+                        if  utility.is_the_file("almacen")==False or tiempo.compareTime() == False  : # si no se ha ejecutado el archivo ninguna vez 
                                                                                                 #o el tiempo de validez del archivo ya expiro entonces 
                                                                                                 # hacer la busqueda completa de nuevo
                             print("La demora tarda aprox 45 seg\n\n ")
                             time.sleep(4)
                             coneccion.search_climates(datosCsv.getDictionary())
-                            writer.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
+                            utility.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             tiempo.set_timePast(datetime.now())  
                             break
@@ -59,7 +59,7 @@ def main ():
 
                         else:
                             time.sleep(4)
-                            coneccion.setWeathers(writer.recover("almacen"))
+                            coneccion.setWeathers(utility.recover("almacen"))
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             break
                 except:
@@ -79,15 +79,15 @@ def main ():
 
 
 
-if writer.exist_key():
-    coneccion=set_of_climate(writer.get_key())
+if utility.exist_key():
+    coneccion=set_of_climate(utility.get_key())
     if coneccion.check_Url():
         main()
     else:
         print ("\n\n\n Escribe una key correcta \n\n\n ")
 else:
     print("Escribe una key en el archivo 'Introduce_tu_key'")
-    writer.makeFile()
+    utility.makeFile()
 
 
 
