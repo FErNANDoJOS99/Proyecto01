@@ -34,7 +34,7 @@ if writer.existFile()==True:
                 tiempo.set_timeCurrent()
                 if i=="1":
                         try:
-                            iata =input ("Escribe la IATA\n")
+                            iata =input ("Escribe la IATA   ..........por ejemplo:  MEX , TLC , MTY  \n")
                             print("\n\n") 
                             if  writer.recover("almacen")==None or tiempo.compareTime() == False:
                                 print("Hizo la solicitud \n\n")
