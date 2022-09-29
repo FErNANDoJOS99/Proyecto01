@@ -50,7 +50,7 @@ def main ():
                                                                                                 # hacer la busqueda completa de nuevo
                             print("La demora tarda aprox 45 seg\n\n ")
                             time.sleep(4)
-                            coneccion.search_for_climate(datosCsv.getDictionary())
+                            coneccion.search_climates(datosCsv.getDictionary())
                             writer.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             tiempo.set_timePast(datetime.now())  
