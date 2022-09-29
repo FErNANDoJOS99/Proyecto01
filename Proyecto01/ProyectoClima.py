@@ -39,11 +39,11 @@ if writer.existFile()==True:
                             if  writer.recover("almacen")==None or tiempo.compareTime() == False:
                                 print("Hizo la solicitud \n\n")
                                 coordenadas1=datosCsv.getDictionary(iata)    
-                                coneccion.drawing_Coordenada(coneccion.request_Api_OpenW(coordenadas1[0],coordenadas1[1]))
+                                coneccion.drawing_Weather(coneccion.request_Api_OpenW(coordenadas1[0],coordenadas1[1]))
                                 break
                             else: 
                                 print("Saco del diccionario \n\n")
-                                coneccion.drawing_Coordenada(writer.recover("almacen"),iata)
+                                coneccion.drawing_Weather(writer.recover("almacen"),iata)
 
                             break
                         except:
@@ -56,9 +56,9 @@ if writer.existFile()==True:
                                                                                                     # hacer la busqueda completa de nuevo
                                 print("La demora tarda aprox 45 seg\n\n ")
                                 time.sleep(4)
-                                coneccion.seacher_Weather(datosCsv.getDictionary())
+                                coneccion.search_climates(datosCsv.getDictionary())
                                 writer.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
-                                coneccion.put_out_everything2(datosCsv.origen,datosCsv.destine)
+                                coneccion.print_all(datosCsv.origen,datosCsv.destine)
                                 tiempo.set_timePast(datetime.now())  
                                 break
                                 
@@ -66,7 +66,7 @@ if writer.existFile()==True:
                             else:
                                 time.sleep(4)
                                 coneccion.setWeathers(writer.recover("almacen"))
-                                coneccion.put_out_everything2(datosCsv.origen,datosCsv.destine)
+                                coneccion.print_all(datosCsv.origen,datosCsv.destine)
                                 break
                     except:
                         print("Algo salio mal verifica tu internet ")

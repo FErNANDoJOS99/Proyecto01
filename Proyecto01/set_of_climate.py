@@ -6,7 +6,7 @@ class set_of_climate(Coneccion_Api):
         super().__init__(clave)
       
  
-    def seacher_Weather(self,diccionario_ABC):
+    def search_climates(self,diccionario_ABC):
         """Crea el diccionario de climas \n
         Hace las llamadas con las direcciones se salen del IATA que estan en el diccionario_ABC
         y los valores de la solucitud los guarda en un diccionario llamado 
@@ -20,7 +20,7 @@ class set_of_climate(Coneccion_Api):
 
 
   
-    def drawing_Coordenada(self,dict1=__weather_dictionary,clave="0"):
+    def drawing_Weather(self,dict1=__weather_dictionary,clave="0"):
 
         """Imprime el diccionario que recibe, de una forma bonita. \n
         Si no se pasa el diccionario , entonces imprime lo de solo un destino 
@@ -55,7 +55,7 @@ class set_of_climate(Coneccion_Api):
 
    
  
-    def put_out_everything(self,origin,destine):
+    def print_all(self,origin,destine):
         """Manda a llamar a drawing_Weather.\n 
         Ademas va haciendo la separacion entre vuelos 
         eh imprime el numero de vuelo que corresponde. """
@@ -67,10 +67,10 @@ class set_of_climate(Coneccion_Api):
             k=destine[i]
             print ("\n\n###### ORIGEN ######")
             print("Clima  de  ",j,"  " )
-            self.drawing_Coordenada(self.__weather_dictionary,j)
+            self.drawing_Weather(self.__weather_dictionary,j)
             print ("\n\n###### DESTINO ######")
             print("Clima  de ",k," ")
-            self.drawing_Coordenada(self.__weather_dictionary,k)
+            self.drawing_Weather(self.__weather_dictionary,k)
             print("\n\n\n Registro ",i," #####################\n")
             if contador ==100:
                 z= input("\n\nBusca el vuelo que necesites o \nDa un enter para continuar \n\n\n") 
