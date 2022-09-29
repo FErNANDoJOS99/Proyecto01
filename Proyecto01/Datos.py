@@ -68,7 +68,7 @@ class Datos:
 
 
 
-    def maker_dict(self,ABC,latitude,altitude,dict):
+    def make_dict(self,ABC,latitude,altitude,dict):
         """Hace un diccionario con claves ABC y por contenido un 
         string con latitud y longitud """
         dict[ABC]=[latitude,altitude]

@@ -37,7 +37,7 @@ def main ():
                             break
                         else: 
                             print("Saco del diccionario \n\n")
-                            coneccion.drawing_Weather(utility.recover("almacen"),iata)
+                            coneccion.drawing_Weather(utility.recover_collection("almacen"),iata)
 
                         break
                     except:
@@ -51,7 +51,7 @@ def main ():
                             print("La demora tarda aprox 45 seg\n\n ")
                             time.sleep(4)
                             coneccion.search_climates(datosCsv.getDictionary())
-                            utility.save(coneccion.getWeathers())                  ## guarda externamente el diccionario 
+                            utility.save_collection(coneccion.getWeathers())                  ## guarda externamente el diccionario 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             tiempo.set_timePast(datetime.now())  
                             break
@@ -59,7 +59,7 @@ def main ():
 
                         else:
                             time.sleep(4)
-                            coneccion.setWeathers(utility.recover("almacen"))
+                            coneccion.setWeathers(utility.recover_collection("almacen"))
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             break
                 except:

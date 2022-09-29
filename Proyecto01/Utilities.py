@@ -8,13 +8,13 @@ class Utilities:
     def __init__(self):
         self.clave=""
 
-    def save(self , coleccion):
+    def save_collection(self , coleccion):
         """Guarda una coleccion en un fichero llamado , almacen"""
         fichero_binario=open("almacen","wb")
         pickle.dump(coleccion,fichero_binario)
         fichero_binario.close()
     
-    def recover(self,nombreArchivo):
+    def recover_collection(self,nombreArchivo):
         """Obtiene la coleccion que se encuentra con el atributo nombre\n
         return la coleccion si esta el archivo,
         return None si no la encuentra"""
