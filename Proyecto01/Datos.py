@@ -3,7 +3,8 @@ pd._version
 
 
 class Datos:   
-
+    """ Se encarga de leer un archivo csv y filtrarlo para obtener valores no repetidos y generar un dictionario con esos valores. 
+         """
     def __init__(self,direction_file):
         self.conjunto =set()
         self.conjunto={""}

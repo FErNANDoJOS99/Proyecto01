@@ -17,7 +17,7 @@ utility=Utilities()
 
 def main ():
 
-    tiempo=Comparador_tiempo(5)
+    tiempo=Comparador_tiempo(5)  # Establece la cantidad en minutos para la vigencia de los archivos 
     
     while True:  
         while True:  
@@ -28,8 +28,10 @@ def main ():
             tiempo.set_current_time()
             if i=="1":
                     try:
-                        iata =input ("Escribe la IATA      .........  Ejemplo MEX  , TLC , MTY  \n")
-                        print("\n\n") 
+                        print("Escribe la IATA que necesitas , abajo te apareceran algunas: \n\n")
+                        IATAS=str(datosCsv.get_Dictionary().keys())
+                        print(IATAS[9:])
+                        iata =input ("\n")
                         if  utility.is_the_file("almacen")==False or tiempo.compare_time() == False:
                             print("Hizo la solicitud \n\n")
                             coordenadas1=datosCsv.get_Dictionary(iata)    
@@ -44,14 +46,12 @@ def main ():
                         print ("\n\n Algo salio mal , verifica la IATA  o tu conexion a Internet \n\n ")
             elif i=="2":
 
-                try :
-                        if  utility.is_the_file("almacen")==False or tiempo.compare_time() == False  : # si no se ha ejecutado el archivo ninguna vez 
-                                                                                                #o el tiempo de validez del archivo ya expiro entonces 
-                                                                                                # hacer la busqueda completa de nuevo
-                            print("La demora tarda aprox 45 seg\n\n ")
+                try :       #  si no se ha ejecutado el archivo ninguna vez o el tiempo de validez del archivo ya expiro entonces hacer la busqueda completa de nuevo
+                        if  utility.is_the_file("almacen")==False or tiempo.compare_time() == False  :
+                            print("La demora tarda aprox 37 seg\n\n ")
                             time.sleep(4)
-                            coneccion.search_climates(datosCsv.get_Dictionary())
-                            utility.save_collection(coneccion.get_Weathers())                  ## guarda externamente el diccionario 
+                            coneccion.search_climates(datosCsv.get_Dictionary())                
+                            utility.save_collection(coneccion.get_Weathers())                  #  guarda externamente el diccionario 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             tiempo.set_past_time(datetime.now())  
                             break
@@ -59,7 +59,7 @@ def main ():
 
                         else:
                             time.sleep(4)
-                            coneccion.set_Weathers(utility.recover_collection("almacen"))
+                            coneccion.set_Weathers(utility.recover_collection("almacen"))  # Actualiza el 
                             coneccion.print_all(datosCsv.origen,datosCsv.destine)
                             break
                 except:
@@ -78,6 +78,8 @@ def main ():
             break
 
 
+
+#  Esta seccion se encarga de verificar las precondiciones ,antes de entrar al metodo main.
 
 if utility.exist_key():
     coneccion=set_of_climate(utility.get_key())

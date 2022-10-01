@@ -3,7 +3,8 @@ from io import open
 colecion=None
 
 class Utilities:
-
+    """ Utilities es un conjunto de metodos que ayuda a administrar 2 tipos de informacion , creacion y lectura de archivos.txt  asi como tambien 
+    Archivos donde se guarda informacion binaria que contendra colecciones. """
     clave=""
     def __init__(self):
         self.clave=""

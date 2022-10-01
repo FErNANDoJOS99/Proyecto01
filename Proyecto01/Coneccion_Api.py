@@ -4,6 +4,7 @@ pd._version
 
 
 class Coneccion_Api:
+    """Recibe una URL , verifica si  tiene comuniccion y llama a la Api de openWeather  generando un diccionario con informacion obtenida por la Api. """
     def __init__(self,clave):
         self.clave=clave      
     

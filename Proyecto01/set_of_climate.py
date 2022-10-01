@@ -1,6 +1,9 @@
 from Coneccion_Api import Coneccion_Api
+
  
 class set_of_climate(Coneccion_Api):
+    """Hereda de Coneccion_Api y se encarga de procesar y almacenar  el diccionario que se genera con las llamadas a la APi ,ademas  imprime 
+    toda la informacion de una manera mas ordena. """
     __weather_dictionary={}   #diccionario de climas 
     def __init__(self,clave):
         super().__init__(clave)
@@ -14,7 +17,7 @@ class set_of_climate(Coneccion_Api):
         contador=0
 
         for i in diccionario_ABC:
-            print("\n",contador,"\n")
+            print("\nContador de información obtenida ",contador,"/ 51 \n")
             self.__weather_dictionary[i]=self.request_Api_OpenW(diccionario_ABC[i][0],diccionario_ABC[i][1])
             contador=contador+1
 
@@ -47,10 +50,12 @@ class set_of_climate(Coneccion_Api):
             
 
     def get_Weathers(self):
+        """Retorna el diccionario de climas."""
         a=self.__weather_dictionary
         return a
 
     def set_Weathers(self,newClima):
+        """Establece el diccionario de climas igual al diccionario que se le pase por parametro."""
         self.__weather_dictionary=newClima
 
    
