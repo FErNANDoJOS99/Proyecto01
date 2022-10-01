@@ -2,7 +2,8 @@ from datetime import datetime, timedelta
 from io import open
 
 class  Comparador_tiempo():
-
+    """Esta clase se en encarga de registrar 2 tiempos y sacar la diferencias de esas 2 lecturas y las compara
+    con un valor valido (primer lectura+tolerancia ) para eso hace uso de ficheros de texto.  """
 
     tiempoActual=None
     tiempoPasado=None
@@ -10,6 +11,8 @@ class  Comparador_tiempo():
 
 
     def __init__(self,intervalo):
+        """El valor que recibe sera  el intervalo que utilizara para comparar el tiempo Actual , respecto a la suma del intervalo y 
+        el anterior tiempo """
         self.intervaloMinutes=intervalo
     
 
