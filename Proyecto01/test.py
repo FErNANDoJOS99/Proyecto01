@@ -3,7 +3,7 @@ import unittest
 from Datos import Datos
 from Comparado_tiempo import Comparador_tiempo
 from Coneccion_Api import Coneccion_Api
-from Writerr import WriterrReader
+from Utilities import Utilities
 
 class TestMethodes(unittest.TestCase):
 
@@ -21,12 +21,12 @@ class TestMethodes(unittest.TestCase):
     #Verifica que la Api si regrese un diccionario 
     def test_verificar_Json(self):
 
-            writer=WriterrReader()
+            utility=Utilities()
             clave=None
 
-            if writer.existFile()==True:
+            if utility.exist_key()==True:
     
-                clave=writer.readFile()
+                clave=utility.read_file_key()
                 claveLimpia=clave.strip()
                 
                 coneccion=Coneccion_Api(claveLimpia) 
@@ -41,8 +41,8 @@ class TestMethodes(unittest.TestCase):
     # Guardado en el archivo "almacen "
     #         
     def test_diccionarioClimas (self):
-        writerr=WriterrReader()
-        diccionarioClimas=writerr.recover("almacen")
+        utility=Utilities()
+        diccionarioClimas=utility.recover_collection("almacen")
       
         self.assertIn("TLC",diccionarioClimas)
         self.assertIn("MEX",diccionarioClimas)
