@@ -15,7 +15,11 @@ de datos.
       sudo apt-get install python-pip   o   sudo apt-get install python3-pip  
       despues sudo pip install pandas   o   sudo pip3 install pandas 
       con los anteriores comandos se puede instalar el instalador de paquetes de 
-      python y pandas 
+      python y pandas.
+      
+      Ademas si estas en Windows o en Mac vas a necesitar la libreria "requests" para que pueda funcionar para eso,
+      suponiendo que ya instalaste "pip" solo tienes que poner "pip install requests" y ya se va a instalar. 
+      
 
 Antes de poder ejecutar el programa vas a necesitar una clave que la vas a 
 poder obtener en https://home.openweathermap.org/
