@@ -22,24 +22,25 @@ class Utilities:
         try:
             ficheroApertura=open(nombreArchivo,"rb")
             dataRecover=pickle.load(ficheroApertura)
+            ficheroApertura.close
            
             return dataRecover
         except:
 
             return None
-        finally: ficheroApertura.close
+      
 
     def is_the_file(self,nombreArchivo):
         """Verifa que se encuentre el archivo , binario, pasado como argumento 
         si lo esta return True , si no return False"""
         try:
             ficheroApertura=open(nombreArchivo,"rb")
-            
+            ficheroApertura.close
             return True
         except:
 
             return False
-        finally :ficheroApertura.close
+        
     ######
       
     def __exist_File(self):
@@ -48,12 +49,12 @@ class Utilities:
         try:
             archivo_texto=open("Introduce_tu_key.txt","r")
             texto=archivo_texto.read()
-           
+            archivo_texto.close()
             return True
 
         except:
             return False
-        finally: archivo_texto.close()
+       
     
 
     def make_File_to_key(self):
